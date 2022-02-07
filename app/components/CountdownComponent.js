@@ -7,8 +7,6 @@ const CountdownComponent = () => {
     const [hours, setHours] = useState(0);
     const [minutes, setMinutes] = useState(0);
 
-    console.log(minutes);
-
     const handleChange = ({ hours, minutes }) => {
         setHours(hours);
         setMinutes(minutes * 60);

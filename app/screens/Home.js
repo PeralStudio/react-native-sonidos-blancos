@@ -17,7 +17,6 @@ const height = Dimensions.get("window").height;
 const Home = () => {
     useFocusEffect(
         useCallback(() => {
-            console.log("card");
             const loadAd = async () => {
                 await AdMobInterstitial.setAdUnitID(
                     "ca-app-pub-3940256099942544/1033173712"
@@ -28,7 +27,7 @@ const Home = () => {
                 AdMobInterstitial.addEventListener(
                     "interstitialDidLoad",
                     () => {
-                        console.log("interstitialDidLoad");
+                        console.log("interstitialDidLoad is loaded");
                     }
                 );
             };

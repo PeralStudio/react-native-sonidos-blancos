@@ -180,10 +180,6 @@ const AudioCuentosComp = () => {
         setVisible(!visible);
     };
 
-    console.log("HoraActual:", moment().format("HH:mm:ss"));
-    console.log(finishHour);
-    console.log(initialHour < finishHour);
-
     const handleChange = ({ minutes }) => {
         setMinutes(minutes * 60);
         setForceCountDownDestroy(forceCountDownDestroy + 1);
@@ -194,8 +190,6 @@ const AudioCuentosComp = () => {
         console.log("Activate non awake");
         toggleOverlay();
     };
-
-    console.log("pepe");
 
     return (
         <>
@@ -359,66 +353,8 @@ const AudioCuentosComp = () => {
                         color="#0a4b4f"
                     />
                 </TouchableOpacity>
-                <View style={styles.count}>
-                    <TouchableOpacity
-                        disabled={
-                            !soundPicked || !playing /* || minutes !== 0 */
-                        }
-                        onPress={toggleOverlay}
-                        style={
-                            playing
-                                ? styles.buttonContainerCountDown
-                                : styles.buttonContainerCountDownDisabled
-                        }
-                    >
-                        <FontAwesome5 name="clock" size={20} color="#0a4b4f" />
-                    </TouchableOpacity>
-                    {minutes > 0 && (
-                        <CountDown
-                            size={20}
-                            key={forceCountDownDestroy}
-                            until={minutes}
-                            onFinish={() => {
-                                stopSound();
-                                deactivateKeepAwake();
-                                console.log("Finished awake");
-                                setMinutes(null);
-                                // navigation.navigate("home-stack");
-                            }}
-                            digitStyle={{
-                                // backgroundColor: "#0a4b4f",
-                                // borderColor: "#0a4b4f",
-                                // borderWidth: 1,
-                                // borderRadius: 5,
-                                width: 25,
-                                height: 25,
-                                margin: 2,
-                            }}
-                            digitTxtStyle={{
-                                color: "white",
-                                fontSize: 20,
-                                fontWeight: "bold",
-                            }}
-                            separatorStyle={{
-                                color: "white",
-                                fontSize: 20,
-                                fontWeight: "bold",
-                            }}
-                            timeToShow={["M", "S"]}
-                            timeLabels={{ m: null, s: null }}
-                            showSeparator
-                            style={{
-                                flex: 1,
-                                flexDirection: "row",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                textAlign: "center",
-                            }}
-                        />
-                    )}
-                </View>
             </View>
-            <View>
+            {/* <View>
                 {minutes > 0 && (
                     <BackgroundTask
                         interval={1000}
@@ -501,7 +437,7 @@ const AudioCuentosComp = () => {
                         />
                     )}
                 </Overlay>
-            </View>
+            </View> */}
         </>
     );
 };

@@ -54,11 +54,8 @@ const RuidoBlancoComp = () => {
     }, []);
 
     async function playSound(soundPicked) {
-        console.log("Loading Sound");
         const { sound } = await Audio.Sound.createAsync(soundPicked);
         setSound(sound);
-
-        console.log("Playing Sound");
 
         await sound.playAsync();
         await sound.setIsLoopingAsync(true);
@@ -66,7 +63,6 @@ const RuidoBlancoComp = () => {
     }
 
     const stopSound = async () => {
-        console.log("Stopping Sound");
         await sound.stopAsync();
         setPlaying(false);
     };
@@ -74,7 +70,6 @@ const RuidoBlancoComp = () => {
     useEffect(() => {
         return sound
             ? () => {
-                  console.log("Unloading Sound");
                   sound.unloadAsync();
               }
             : undefined;

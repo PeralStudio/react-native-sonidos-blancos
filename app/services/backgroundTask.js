@@ -4,8 +4,6 @@ import moment from "moment";
 import { useNavigation } from "@react-navigation/native";
 
 function BackgroundTask(props) {
-    console.log(props.initialHour);
-    console.log("Hora Final:", props.finishHour);
     const finishHour = props.finishHour;
     const timeToTimeout = props.minutes * 1000;
 
