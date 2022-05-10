@@ -24,6 +24,7 @@ import birdsImage from "../../assets/images/sonidosNaturaleza/birds.png";
 import farmImage from "../../assets/images/sonidosNaturaleza/farm.png";
 import waterfallImage from "../../assets/images/sonidosNaturaleza/waterfall.png";
 import Cardsound from "./CardSound";
+import { AdMobBanner } from "expo-ads-admob";
 
 const seaAwavesSound = require("../../assets/sounds/sonidosNaturaleza/sea-waves.mp3");
 const rainSound = require("../../assets/sounds/sonidosNaturaleza/rain.mp3");
@@ -165,6 +166,16 @@ const SondsNaturaleza = () => {
                     source={require("../../assets/images/background.jpg")}
                     style={styles.containerBackground}
                 >
+                    <AdMobBanner
+                        bannerSize="smartBannerPortrait"
+                        adUnitID="ca-app-pub-6203383529182342/1839237229"
+                        onDidFailToReceiveAdWithError={(err) =>
+                            console.log(err)
+                        }
+                        style={{
+                            marginTop: height * 0.1,
+                        }}
+                    />
                     <View style={styles.container}>
                         <View>
                             <Cardsound

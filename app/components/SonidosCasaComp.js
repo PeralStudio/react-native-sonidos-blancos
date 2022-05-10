@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { Audio } from "expo-av";
 import { FontAwesome5 } from "@expo/vector-icons";
+import { AdMobBanner } from "expo-ads-admob";
 
 import Constants from "expo-constants";
 import * as Notifications from "expo-notifications";
@@ -162,6 +163,16 @@ const SonidosCasaComp = () => {
                     source={require("../../assets/images/background.jpg")}
                     style={styles.containerBackground}
                 >
+                    <AdMobBanner
+                        bannerSize="smartBannerPortrait"
+                        adUnitID="ca-app-pub-6203383529182342/7638358812"
+                        onDidFailToReceiveAdWithError={(err) =>
+                            console.log(err)
+                        }
+                        style={{
+                            marginTop: height * 0.1,
+                        }}
+                    />
                     <View style={styles.container}>
                         <View>
                             <Cardsound

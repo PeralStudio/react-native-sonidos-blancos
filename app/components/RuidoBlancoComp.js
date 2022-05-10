@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { Audio } from "expo-av";
 import { FontAwesome5 } from "@expo/vector-icons";
+import { AdMobBanner } from "expo-ads-admob";
 
 import Cardsound from "./CardSound";
 
@@ -147,6 +148,16 @@ const RuidoBlancoComp = () => {
                     source={require("../../assets/images/background.jpg")}
                     style={styles.containerBackground}
                 >
+                    <AdMobBanner
+                        bannerSize="smartBannerPortrait"
+                        adUnitID="ca-app-pub-6203383529182342/3507542110"
+                        onDidFailToReceiveAdWithError={(err) =>
+                            console.log(err)
+                        }
+                        style={{
+                            marginTop: height * 0.1,
+                        }}
+                    />
                     <View style={styles.container}>
                         <View>
                             <Cardsound

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "117067558707",
+    "project_id": "react-native-ruidos-blancos",
+    "storage_bucket": "react-native-ruidos-blancos.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:117067558707:android:2de4919ae90884010d9846",
+        "android_client_info": {
+          "package_name": "com.alfanjorfresco.ruidoblancobebe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "117067558707-mvmmn5vh9ifak15smcon54nrsn0bui7c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCmpeS9FGNrxcQ9QpCrtLI-DH7wiCAbGw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "117067558707-mvmmn5vh9ifak15smcon54nrsn0bui7c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

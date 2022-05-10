@@ -1,7 +1,13 @@
 import { useFocusEffect } from "@react-navigation/native";
-import { AdMobInterstitial } from "expo-ads-admob";
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import { View, StyleSheet, ImageBackground, Dimensions } from "react-native";
+import React, { useCallback } from "react";
+import {
+    View,
+    StyleSheet,
+    ImageBackground,
+    Dimensions,
+    ScrollView,
+} from "react-native";
+import { AdMobInterstitial, AdMobBanner } from "expo-ads-admob";
 
 import Card from "../components/Card";
 
@@ -19,7 +25,7 @@ const Home = () => {
         useCallback(() => {
             const loadAd = async () => {
                 await AdMobInterstitial.setAdUnitID(
-                    "ca-app-pub-3940256099942544/1033173712"
+                    "ca-app-pub-6203383529182342/7415035522"
                 ); // Test ID, Replace with your-admob-unit-id
                 await AdMobInterstitial.requestAdAsync({
                     servePersonalizedAds: true,
@@ -42,56 +48,61 @@ const Home = () => {
             source={require("../../assets/images/background.jpg")}
             style={styles.containerBackground}
         >
-            {/* <ScrollView style={styles.viewBody}> */}
-            <View style={styles.container}>
-                <View>
-                    <Card
-                        text={"Sonidos Naturaleza"}
-                        image={sourceImageFour}
-                        navTo={"sonidos-naturaleza-stack"}
-                        showAd={showAd}
-                    />
-                    <Card
-                        text={"Audio cuentos"}
-                        image={sourceImageThree}
-                        navTo={"audio-cuentos-stack"}
-                        showAd={showAd}
-                    />
+            <ScrollView style={styles.viewBody}>
+                <View style={styles.container}>
+                    <View>
+                        <Card
+                            text={"Sonidos Naturaleza"}
+                            image={sourceImageFour}
+                            navTo={"sonidos-naturaleza-stack"}
+                            showAd={showAd}
+                        />
+                        <Card
+                            text={"Audio cuentos"}
+                            image={sourceImageThree}
+                            navTo={"audio-cuentos-stack"}
+                            showAd={showAd}
+                        />
+                    </View>
+                    <View>
+                        <Card
+                            text={"Sonidos Relajantes"}
+                            image={sourceImageTwo}
+                            navTo={"sonidos-relajantes-stack"}
+                            showAd={showAd}
+                        />
+                        <Card
+                            text={"Sonidos de Casa"}
+                            image={sourceImageFive}
+                            navTo={"sonidos-casa-stack"}
+                            showAd={showAd}
+                        />
+                    </View>
                 </View>
-                <View>
-                    <Card
-                        text={"Sonidos Relajantes"}
-                        image={sourceImageTwo}
-                        navTo={"sonidos-relajantes-stack"}
-                        showAd={showAd}
-                    />
-                    <Card
-                        text={"Sonidos de Casa"}
-                        image={sourceImageFive}
-                        navTo={"sonidos-casa-stack"}
-                        showAd={showAd}
-                    />
+                <View style={styles.container}>
+                    <View>
+                        <Card
+                            text={"Ruido Blanco"}
+                            image={sourceImageSix}
+                            navTo={"ruido-blanco-stack"}
+                            showAd={showAd}
+                        />
+                    </View>
+                    <View>
+                        <Card
+                            text={"Canciones Cuna"}
+                            image={sourceImageOne}
+                            navTo={"canciones-cuna-stack"}
+                            showAd={showAd}
+                        />
+                    </View>
                 </View>
-            </View>
-            <View style={styles.container}>
-                <View>
-                    <Card
-                        text={"Ruido Blanco"}
-                        image={sourceImageSix}
-                        navTo={"ruido-blanco-stack"}
-                        showAd={showAd}
-                    />
-                </View>
-                <View>
-                    <Card
-                        text={"Canciones Cuna"}
-                        image={sourceImageOne}
-                        navTo={"canciones-cuna-stack"}
-                        showAd={showAd}
-                    />
-                </View>
-            </View>
-            {/* </ScrollView> */}
+            </ScrollView>
+            <AdMobBanner
+                bannerSize="smartBannerPortrait"
+                adUnitID="ca-app-pub-6203383529182342/7941611144"
+                onDidFailToReceiveAdWithError={(err) => console.log(err)}
+            />
         </ImageBackground>
     );
 };
@@ -100,6 +111,7 @@ const styles = StyleSheet.create({
     viewBody: {
         flex: 1,
         // backgroundColor: "#0c2954",
+        marginTop: 10,
     },
     container: {
         flexDirection: "row",

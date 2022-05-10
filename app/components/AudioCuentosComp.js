@@ -12,17 +12,13 @@ import {
 } from "react-native";
 import { Audio } from "expo-av";
 import { FontAwesome5 } from "@expo/vector-icons";
-import { Button, Icon, Overlay } from "react-native-elements";
-import { TimePicker } from "react-native-simple-time-picker";
-import CountDown from "react-native-countdown-component";
 import moment from "moment";
+import { AdMobBanner } from "expo-ads-admob";
 
 import Cardsound from "./CardSound";
 
 import Constants from "expo-constants";
 import * as Notifications from "expo-notifications";
-
-import BackgroundTask from "../services/backgroundTask";
 import { activateKeepAwake, deactivateKeepAwake } from "expo-keep-awake";
 
 import caperucitaImage from "../../assets/images/audioCuentos/caperucita.png";
@@ -198,6 +194,16 @@ const AudioCuentosComp = () => {
                     source={require("../../assets/images/background.jpg")}
                     style={styles.containerBackground}
                 >
+                    <AdMobBanner
+                        bannerSize="smartBannerPortrait"
+                        adUnitID="ca-app-pub-6203383529182342/7829930508"
+                        onDidFailToReceiveAdWithError={(err) =>
+                            console.log(err)
+                        }
+                        style={{
+                            marginTop: height * 0.1,
+                        }}
+                    />
                     <View style={styles.container}>
                         <View>
                             <Cardsound

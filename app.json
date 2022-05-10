@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "react-native-ruido-blanco-bebe",
+    "name": "Ruido Blanco Bebé",
     "slug": "react-native-ruido-blanco-bebe",
-    "version": "1.0.1",
+    "version": "1.0.6",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#0a4b4f"
     },
     "userInterfaceStyle": "automatic",
     "updates": {
@@ -22,14 +22,15 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#0a4b4f"
       },
+      "googleServicesFile": "./google-services.json",
       "config": {
-        "googleMobileAdsAppId": "ca-app-pub-3940256099942544~3347511713"
+        "googleMobileAdsAppId": "ca-app-pub-6203383529182342~9929518222"
       },
       "package": "com.alfanjorfresco.ruidoblancobebe",
-      "versionCode": 1
+      "versionCode": 6
     },
     "web": {
       "favicon": "./assets/favicon.png"

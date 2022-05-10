@@ -25,6 +25,7 @@ import silenceImage from "../../assets/images/sonidosRelajantes/silence.png";
 import trainImage from "../../assets/images/sonidosRelajantes/train.png";
 import fanImage from "../../assets/images/sonidosRelajantes/fan.png";
 import singingBowlImage from "../../assets/images/sonidosRelajantes/singingBowl.png";
+import { AdMobBanner } from "expo-ads-admob";
 
 const babySound = require("../../assets/sounds/sonidosRelajantes/baby.m4a");
 const heartSound = require("../../assets/sounds/sonidosRelajantes/heart.mp3");
@@ -166,6 +167,16 @@ const SonidosRelajantes = () => {
                     source={require("../../assets/images/background.jpg")}
                     style={styles.containerBackground}
                 >
+                    <AdMobBanner
+                        bannerSize="smartBannerPortrait"
+                        adUnitID="ca-app-pub-6203383529182342/5862242711"
+                        onDidFailToReceiveAdWithError={(err) =>
+                            console.log(err)
+                        }
+                        style={{
+                            marginTop: height * 0.1,
+                        }}
+                    />
                     <View style={styles.container}>
                         <View>
                             <Cardsound
