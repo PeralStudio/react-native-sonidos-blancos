@@ -1,14 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Icon } from "react-native-elements/dist/icons/Icon";
 
 import HomeStack from "./HomeStack";
+import {
+    checkMinimalTimeToReview,
+    needCheckReview,
+    TIME_TO_INTERVAL,
+} from "../services/totalTimeListened";
 // import AudioCuentosComp from "../components/AudioCuentosComp";
 
 const Tab = createBottomTabNavigator();
 
 const Navigation = () => {
+    useEffect(() => {
+        interval = setInterval(() => {
+            if (needCheckReview) {
+                checkMinimalTimeToReview();
+            } else {
+                clearInterval(interval);
+            }
+        }, TIME_TO_INTERVAL);
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <NavigationContainer>
             <Tab.Navigator
