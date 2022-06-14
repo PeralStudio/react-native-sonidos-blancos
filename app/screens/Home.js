@@ -27,9 +27,7 @@ const Home = () => {
                 await AdMobInterstitial.setAdUnitID(
                     "ca-app-pub-6203383529182342/7415035522"
                 ); // Test ID, Replace with your-admob-unit-id
-                await AdMobInterstitial.requestAdAsync({
-                    servePersonalizedAds: true,
-                });
+                await AdMobInterstitial.requestAdAsync();
                 AdMobInterstitial.addEventListener(
                     "interstitialDidLoad",
                     () => {
