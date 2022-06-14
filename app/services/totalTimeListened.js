@@ -52,7 +52,6 @@ export const getTotalTimeListenLS = async () => {
 };
 
 const setTotalTimeListenedLS = async (timeObject) => {
-    console.log("setTotalTimeListenedLS", timeObject);
     try {
         await AsyncStorage.setItem(
             "@totalTimeListened",
@@ -64,10 +63,7 @@ const setTotalTimeListenedLS = async (timeObject) => {
 };
 
 export const checkMinimalTimeToReview = async () => {
-    console.log("checkMinimalTimeToReview---Begin");
     getTotalTimeListenLS().then((data) => {
-        console.log("totaltimelistenedLS:", data.totalTimeListened);
-        console.log("reviewShowedLS:", data.reviewShowed);
         timeListened = data;
         if (data.reviewShowed === true) {
             needCheckReview = false;
@@ -80,9 +76,7 @@ export const checkMinimalTimeToReview = async () => {
 
 //Añadir el tiempo total de reproduccion al LS
 export const addTotalTimeListened = (time) => {
-    console.log("addTotalTimeListened---Begin", typeof time);
     if (time > 0) {
-        console.log("if");
         getTotalTimeListenLS().then((data) => {
             // Actualizar LocalStorage con el tiempo total de reproduccion y reviewShowed
             setTotalTimeListenedLS({
