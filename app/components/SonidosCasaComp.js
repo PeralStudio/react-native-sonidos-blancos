@@ -132,11 +132,6 @@ const SonidosDeCasaComp = () => {
                 ...timeListened,
                 finalTime: new Date().getTime(),
             });
-            console.log("doscosas", timeListened);
-            console.log(
-                "resta",
-                timeListened.finalTime - timeListened.initialTime
-            );
             addTotalTimeListened(
                 new Date().getTime() - timeListened.initialTime
             );
@@ -148,10 +143,6 @@ const SonidosDeCasaComp = () => {
     };
 
     const goBackFinish = () => {
-        console.log(
-            "goBackFinish",
-            timeListened.finalTime - timeListened.initialTime
-        );
         timeListened.initialTime > 0 &&
             addTotalTimeListened(
                 timeListened.finalTime - timeListened.initialTime
@@ -257,8 +248,7 @@ const SonidosDeCasaComp = () => {
                 >
                     <AdMobBanner
                         bannerSize="smartBannerPortrait"
-                        adUnitID="ca-app-pub-6203383529182342/1839237229"
-                        servePersonalizedAds={true}
+                        adUnitID="ca-app-pub-6203383529182342/7638358812"
                         onDidFailToReceiveAdWithError={(err) =>
                             console.log(err)
                         }
@@ -295,6 +285,21 @@ const SonidosDeCasaComp = () => {
                                 }}
                             />
                             <Cardsound
+                                image={showerImage}
+                                onPress={() => {
+                                    setSoundPicked(showerSound);
+                                    setimagePicked(showerImage);
+                                    setSoundPickedName(showerSoundName);
+                                    playing
+                                        ? stopSound()
+                                        : playSound(showerSound);
+                                    imagePicked !== showerImage &&
+                                        playSound(showerSound);
+                                }}
+                            />
+                        </View>
+                        <View>
+                            <Cardsound
                                 image={washingImage}
                                 onPress={() => {
                                     setSoundPicked(washingSound);
@@ -305,6 +310,32 @@ const SonidosDeCasaComp = () => {
                                         : playSound(washingSound);
                                     imagePicked !== washingImage &&
                                         playSound(washingSound);
+                                }}
+                            />
+                            <Cardsound
+                                image={razorImage}
+                                onPress={() => {
+                                    setSoundPicked(razorSound);
+                                    setimagePicked(razorImage);
+                                    setSoundPickedName(razorSoundName);
+                                    playing
+                                        ? stopSound()
+                                        : playSound(razorSound);
+                                    imagePicked !== razorImage &&
+                                        playSound(razorSound);
+                                }}
+                            />
+                            <Cardsound
+                                image={writtingImage}
+                                onPress={() => {
+                                    setSoundPicked(writtingSound);
+                                    setimagePicked(writtingImage);
+                                    setSoundPickedName(writtingSoundName);
+                                    playing
+                                        ? stopSound()
+                                        : playSound(writtingSound);
+                                    imagePicked !== writtingImage &&
+                                        playSound(writtingSound);
                                 }}
                             />
                         </View>
@@ -323,19 +354,6 @@ const SonidosDeCasaComp = () => {
                                 }}
                             />
                             <Cardsound
-                                image={writtingImage}
-                                onPress={() => {
-                                    setSoundPicked(writtingSound);
-                                    setimagePicked(writtingImage);
-                                    setSoundPickedName(writtingSoundName);
-                                    playing
-                                        ? stopSound()
-                                        : playSound(writtingSound);
-                                    imagePicked !== writtingImage &&
-                                        playSound(writtingSound);
-                                }}
-                            />
-                            <Cardsound
                                 image={tictacImage}
                                 onPress={() => {
                                     setSoundPicked(tictacSound);
@@ -346,45 +364,6 @@ const SonidosDeCasaComp = () => {
                                         : playSound(tictacSound);
                                     imagePicked !== tictacImage &&
                                         playSound(tictacSound);
-                                }}
-                            />
-                        </View>
-                        <View>
-                            <Cardsound
-                                image={showerImage}
-                                onPress={() => {
-                                    setSoundPicked(showerSound);
-                                    setimagePicked(showerImage);
-                                    setSoundPickedName(showerSoundName);
-                                    playing
-                                        ? stopSound()
-                                        : playSound(showerSound);
-                                    imagePicked !== showerImage &&
-                                        playSound(showerSound);
-                                }}
-                            />
-                            <Cardsound
-                                image={fanImage}
-                                onPress={() => {
-                                    setSoundPicked(fanSound);
-                                    setimagePicked(fanImage);
-                                    setSoundPickedName(fanSoundName);
-                                    playing ? stopSound() : playSound(fanSound);
-                                    imagePicked !== fanImage &&
-                                        playSound(fanSound);
-                                }}
-                            />
-                            <Cardsound
-                                image={razorImage}
-                                onPress={() => {
-                                    setSoundPicked(razorSound);
-                                    setimagePicked(razorImage);
-                                    setSoundPickedName(razorSoundName);
-                                    playing
-                                        ? stopSound()
-                                        : playSound(razorSound);
-                                    imagePicked !== razorImage &&
-                                        playSound(razorSound);
                                 }}
                             />
                         </View>

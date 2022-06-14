@@ -135,11 +135,6 @@ const SondsNaturaleza = () => {
                 ...timeListened,
                 finalTime: new Date().getTime(),
             });
-            console.log("doscosas", timeListened);
-            console.log(
-                "resta",
-                timeListened.finalTime - timeListened.initialTime
-            );
             addTotalTimeListened(
                 new Date().getTime() - timeListened.initialTime
             );

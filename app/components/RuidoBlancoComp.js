@@ -52,7 +52,6 @@ const RuidoBlancoComp = () => {
 
     const navigation = useNavigation();
     navigation.addListener("beforeRemove", () => {
-        console.log("beforeRemove");
         goBackFinish();
         stopSound();
     });
@@ -117,11 +116,6 @@ const RuidoBlancoComp = () => {
                 ...timeListened,
                 finalTime: new Date().getTime(),
             });
-            console.log("doscosas", timeListened);
-            console.log(
-                "resta",
-                timeListened.finalTime - timeListened.initialTime
-            );
             addTotalTimeListened(
                 new Date().getTime() - timeListened.initialTime
             );
@@ -133,10 +127,6 @@ const RuidoBlancoComp = () => {
     };
 
     const goBackFinish = () => {
-        console.log(
-            "goBackFinish",
-            timeListened.finalTime - timeListened.initialTime
-        );
         timeListened.initialTime > 0 &&
             addTotalTimeListened(
                 timeListened.finalTime - timeListened.initialTime
