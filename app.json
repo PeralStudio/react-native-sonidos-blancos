@@ -2,7 +2,7 @@
   "expo": {
     "name": "Ruido Blanco Bebé",
     "slug": "react-native-ruido-blanco-bebe",
-    "version": "1.0.11",
+    "version": "1.0.13",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -30,7 +30,8 @@
         "googleMobileAdsAppId": "ca-app-pub-6203383529182342~9929518222"
       },
       "package": "com.alfanjorfresco.ruidoblancobebe",
-      "versionCode": 11
+      "versionCode": 13,
+      "useNextNotificationsApi": true
     },
     "web": {
       "favicon": "./assets/favicon.png"

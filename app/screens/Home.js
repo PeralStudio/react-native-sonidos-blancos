@@ -27,15 +27,23 @@ const Home = () => {
                 await AdMobInterstitial.setAdUnitID(
                     "ca-app-pub-6203383529182342/7415035522"
                 ); // Test ID, Replace with your-admob-unit-id
-                await AdMobInterstitial.requestAdAsync();
-                AdMobInterstitial.addEventListener(
-                    "interstitialDidLoad",
-                    () => {
-                        console.log("interstitialDidLoad is loaded");
-                    }
-                );
+                const ready = await AdMobInterstitial.getIsReadyAsync();
+                if (ready) {
+                    return;
+                } else {
+                    await AdMobInterstitial.requestAdAsync({
+                        servePersonalizedAds: true,
+                    });
+                    AdMobInterstitial.addEventListener(
+                        "interstitialDidLoad",
+                        () => {
+                            console.log("interstitialDidLoad is loaded");
+                        }
+                    );
+                }
             };
             loadAd();
+            AdMobInterstitial.dismissAdAsync();
         }, [])
     );
 
